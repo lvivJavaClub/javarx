@@ -1,0 +1,16 @@
+### Gradle template
+git.gradle
+build/
+.gradle/
+#gradle/
+*/gradle/wrapper/gradle-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*/out/
+*/build/
+
+.DS_Store
