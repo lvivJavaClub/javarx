@@ -1,12 +1,36 @@
 package com.lohika.javaclub.rxdata;
 
-import lombok.Builder;
-import lombok.Data;
-
-@Data
-@Builder
 public class Customer {
-    String name;
-    String surName;
-    String street;
+  private String name;
+  private String surName;
+  private String street;
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getSurName() {
+    return surName;
+  }
+
+  public void setSurName(String surName) {
+    this.surName = surName;
+  }
+
+  public String getStreet() {
+    return street;
+  }
+
+  public void setStreet(String street) {
+    this.street = street;
+  }
+
+  @Override
+  public String toString() {
+    return getName() + ", " + getSurName() + ", " + getStreet();
+  }
 }

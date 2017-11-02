@@ -1,42 +1,35 @@
 package com.lohika.javaclub.rxdata;
 
-import com.github.javafaker.Faker;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import io.reactivex.Flowable;
+import io.reactivex.Scheduler;
+import io.reactivex.schedulers.Schedulers;
 
 @RestController
 public class TestController {
 
-    @Autowired
-    Faker faker;
+  @Autowired
+  CustomerSubscriber customerSubscriber;
 
-    @Autowired
-    CustomerPublisherService publisherService;
+  @Autowired
+  CustomerPublisher customerPublisher;
 
-    @GetMapping(value = "/one")
-    public Customer getAllCustomers() {
-        return buildCustomer(0);
-    }
 
-    @GetMapping(value = "/rand")
-    public List<Customer> getCustomers(@RequestParam int count) {
-        List<Customer> customers = IntStream.range(0, count).mapToObj(this::buildCustomer).collect(Collectors.toList());
-        customers.forEach(publisherService::call);
-        return customers;
-    }
+  @GetMapping(value = "/start")
+  public String doStart() {
+    Flowable.fromPublisher(customerPublisher)
+        .subscribeOn(Schedulers.newThread())
+        .subscribe(customerSubscriber);
+    return "OK";
+  }
 
-    private Customer buildCustomer(int i) {
-        return Customer.builder()
-                .street(faker.address().streetAddress())
-                .name(faker.name().firstName())
-                .surName(faker.name().lastName())
-                .build();
-    }
+  @GetMapping(value = "/stop")
+  public String doStop() {
+    customerPublisher.stop();
+    return "OK";
+  }
+
 }
