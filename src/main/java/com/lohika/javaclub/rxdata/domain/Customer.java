@@ -1,4 +1,4 @@
-package com.lohika.javaclub.rxdata;
+package com.lohika.javaclub.rxdata.domain;
 
 public class Customer {
   private String name;

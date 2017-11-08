@@ -1,12 +1,16 @@
 # Java RX
-Spring boot app with rest endpoint to trigger publishing of events
+Simple Spring boot application with simple examples of RX Java 2.0
 
+## Content
+- [ ] Simple publisher
+- [ ] Error publisher
 
-## TODO Items
-- [x] Create base app
-- [x] Add publish/subscrber model
-- [ ] Try intermediate operations (filter, map)
-- [ ] BackPressure
-- [ ] Parallelize
-- [ ] Merge, split multiple publishers
-- [ ] Move to socket implementation
+- [ ] Simple subscriber
+- [ ] Taken subscriber
+- [ ] Parallel subscriber
+- [ ] Cacheable subscriber
+- [ ] Buffered subscriber
+- [ ] Throttle subscriber
+- [ ] Window subscriber
+- [ ] Flowable subscriber
+- [ ] Recoverable subscriber
