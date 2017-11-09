@@ -23,7 +23,7 @@ public class WindowSubscriber {
 
     publisher
         .subscribeOn(Schedulers.newThread())
-        .take(100)
+        //.take(100)
         .window(10)
         .subscribe(window -> window
             .subscribeOn(Schedulers.newThread())

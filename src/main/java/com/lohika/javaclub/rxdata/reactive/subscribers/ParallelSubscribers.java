@@ -23,11 +23,11 @@ public class ParallelSubscribers {
 
     publisher
         .subscribeOn(Schedulers.newThread())
-        .subscribe(customer -> System.out.println("Subscriber 1 : " + customer));
+        .subscribe(customer -> System.out.println(Thread.currentThread().getName() + " | Subscriber 1 : " + customer));
 
     publisher
         .subscribeOn(Schedulers.newThread())
-        .subscribe(customer -> System.out.println("Subscriber 2 : " + customer));
+        .subscribe(customer -> System.out.println(Thread.currentThread().getName() + " | Subscriber 2 : " + customer));
   }
 
 

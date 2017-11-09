@@ -28,9 +28,9 @@ public class BufferableSubscriber {
 
     publisher
         .subscribeOn(Schedulers.newThread())
-        .buffer(1000)
-        //.buffer(5, TimeUnit.SECONDS)
-        .subscribe(customer -> System.out.println("Subscriber 1 : " + customer));
+        .take(30)
+        .buffer(7)
+        .subscribe(customers -> System.out.println("Subscriber 1 : " + customers));
   }
 
 

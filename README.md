@@ -2,15 +2,16 @@
 Simple Spring boot application with simple examples of RX Java 2.0
 
 ## Content
-- [ ] Simple publisher
-- [ ] Error publisher
+- [x] Simple publisher
+- [x] Error publisher
 
-- [ ] Simple subscriber
-- [ ] Taken subscriber
-- [ ] Parallel subscriber
-- [ ] Cacheable subscriber
-- [ ] Buffered subscriber
-- [ ] Throttle subscriber
-- [ ] Window subscriber
-- [ ] Flowable subscriber
-- [ ] Recoverable subscriber
+- [x] Simple subscriber
+- [x] Taken subscriber
+- [x] Parallel subscriber
+- [x] Cacheable subscriber
+- [x] Buffered subscriber
+- [x] Throttle subscriber
+- [x] Window subscriber
+- [x] Flowable subscriber
+- [x] Recoverable subscriber
+

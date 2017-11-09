@@ -25,7 +25,8 @@ public class FlowableSubscriber {
   @PostConstruct
   public void subscribe() {
 
-    publisher.subscribeOn(Schedulers.newThread())
+    publisher
+        .subscribeOn(Schedulers.newThread())
         .toFlowable(BackpressureStrategy.DROP)
         .subscribe(new DisposableSubscriber<Customer>() {
 

@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.annotation.PostConstruct;
 
+import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -23,10 +24,13 @@ public class ThrottleSubscriber {
   @PostConstruct
   public void subscribe() {
 
-    publisher
+
+    Observable<Long> intPab = Observable.interval(1, TimeUnit.MILLISECONDS);
+
+    intPab
         .subscribeOn(Schedulers.newThread())
-        .throttleFirst(5, TimeUnit.SECONDS)
-        .subscribe(customer -> System.out.println("Subscriber 1 : " + customer));
+        .throttleLast(5, TimeUnit.SECONDS)
+        .subscribe(customer -> System.out.println("Number : " + customer));
   }
 
 

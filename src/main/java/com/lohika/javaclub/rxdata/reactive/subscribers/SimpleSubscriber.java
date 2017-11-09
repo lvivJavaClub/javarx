@@ -3,6 +3,7 @@ package com.lohika.javaclub.rxdata.reactive.subscribers;
 import com.lohika.javaclub.rxdata.reactive.publishers.SimplePublisher;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
@@ -22,9 +23,9 @@ public class SimpleSubscriber {
 
     publisher
         .subscribeOn(Schedulers.newThread())
-        .subscribe(customer -> System.out.println("Subscriber 1 : " + customer));
+        .subscribe(customer -> System.out.println(Thread.currentThread().getName() + "Subscriber 1 : " + customer));
 
-    //System.out.println("Wait me here !!!");
+    System.out.println("Wait me here !!!");
   }
 
 

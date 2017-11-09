@@ -4,6 +4,7 @@ import com.lohika.javaclub.rxdata.domain.Customer;
 import com.lohika.javaclub.rxdata.reactive.publishers.SimplePublisher;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
@@ -25,14 +26,14 @@ public class CacheableSubscriber {
 
     Observable<Customer> customerObservable = publisher
         .subscribeOn(Schedulers.newThread())
-        .cacheWithInitialCapacity(100);
+        .cache();
 
     customerObservable
-        .take(200)
+        .take(5)
         .subscribe(customer -> System.out.println("Subscriber 1 : " + customer));
 
     customerObservable.subscribeOn(Schedulers.newThread())
-        .take(200)
+        .take(2)
         .subscribe(customer -> System.out.println("Subscriber 2 : " + customer));
   }
 

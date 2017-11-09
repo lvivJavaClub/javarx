@@ -25,8 +25,8 @@ public class TakenSubscriber {
 
     publisher
         .subscribeOn(Schedulers.newThread())
-        .take(10)
-        //.take(10, TimeUnit.SECONDS)
+        //.take(10)
+        .take(5, TimeUnit.SECONDS)
         .subscribe(customer -> System.out.println("Subscriber 1 : " + customer));
   }
 
